@@ -1,0 +1,27 @@
+apply plugin: 'groovy'
+apply plugin: 'eclipse'
+//apply plugin: 'jar'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	groovy group: 'org.codehaus.groovy', name: 'groovy', version: '1.8.5'
+	groovy group: 'joda-time', name: 'joda-time', version: '2.0'
+	groovy group: 'org.codehaus.groovy.modules.http-builder', name: 'http-builder', version: '0.5.2'
+}
+
+jar {
+	manifest {
+		attributes("Main-Class": "pl.squirrel.slimtimer.Spike")
+	}
+}
+
+task copyToLib(type: Copy) {
+	into "$buildDir/output/lib"
+	from configurations.runtime
+}
+
+task packAll(dependsOn: [jar, copyToLib]) {
+}
