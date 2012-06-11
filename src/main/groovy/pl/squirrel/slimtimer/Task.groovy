@@ -22,6 +22,8 @@ public class Task implements Comparable<Task> {
 	String getNameWithoutTracNumber() {
 		if(name =~ /^\s*#\d+/) {
 			(name =~ /^\s*#\d+:?\s*(.*)/)[0][1]
+		} else {
+			name
 		}
 	}
 }

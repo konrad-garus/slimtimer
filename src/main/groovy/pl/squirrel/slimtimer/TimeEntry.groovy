@@ -11,4 +11,5 @@ public class TimeEntry {
 	DateTime endTime
 	int durationInSeconds
 	Task task
+	
 }

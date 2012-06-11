@@ -18,6 +18,7 @@ class ReportLastWeek {
 		DateTime monday = midnight.dayOfWeek().withMinimumValue()
 		DateTime lastMonday = monday.minusDays(7)
 
+		System.out.println("Getting entries for $lastMonday and $monday")
 		List<TimeEntry> entries = timer.getTimeEntries(lastMonday, monday)
 
 		new Report(entries, new DateMidnight(lastMonday), new DateMidnight(monday)).printTsv()

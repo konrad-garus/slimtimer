@@ -45,8 +45,13 @@ public class Report {
 			print '\t'
 			print dev
 			print '\t'
-			print it.getTracNumber()
-			
+			print it.getTask().getTracNumber()
+			it.renderDays().each {
+				print '\t'
+				print it
+			}
+			print '\t\t\t\t\t'
+			print it.getTask().getNameWithoutTracNumber()
 			print '\n'
 		}
 	}
